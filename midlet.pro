@@ -1,0 +1,11 @@
+-injars ComeOnThunder_unverified.jar
+-outjars ComeOnThunder.jar
+-libraryjars /home/ubuntu/microemulator-2.0.3/lib/midpapi20.jar
+-libraryjars /home/ubuntu/microemulator-2.0.3/lib/cldcapi11.jar
+-overloadaggressively
+-repackageclasses ''
+-allowaccessmodification
+-microedition
+-printseeds
+
+-keep public class * extends javax.microedition.midlet.MIDlet

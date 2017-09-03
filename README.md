@@ -15,18 +15,17 @@ Not in Travis (yet) but, thanks to a [Java Mobile Edition Development Tools](htt
 ### Compile
 
 ```
-javac -target 1.3 -source 1.3 -bootclasspath microemulator-2.0.3/lib/cldcapi10.jar:microemulato
-r-2.0.3/lib/midpapi20.jar -d tmpclasses src/uk/me/nti/midp/ComeOnThunder.java
+javac -target 1.3 -source 1.3 -bootclasspath /home/ubuntu/microemulator-2.0.3/lib/cldcapi10.jar:/home/ubuntu/microemulator-2.0.3/lib/midpapi20.jar -d target src/main/java/uk/me/nti/midp/ComeOnThunder.java
 ```
 
 ### Create unverified jar
 
 ```
-jar cfm ComeOnThunder_unverified.jar MANIFEST.MF -C tmpclasses .
+jar cfm ComeOnThunder_unverified.jar src/main/resources/MANIFEST.MF -C target .
 ```
 
 ### Preverify
 
 ```
-java -jar proguard5.3.3/lib/proguard.jar @midlet.pro
+java -jar /home/ubuntu/proguard5.3.3/lib/proguard.jar @midlet.pro
 ```
