@@ -1,7 +1,7 @@
 -injars ComeOnThunder_unverified.jar
 -outjars ComeOnThunder.jar
--libraryjars /home/ubuntu/microemulator-2.0.3/lib/midpapi20.jar
--libraryjars /home/ubuntu/microemulator-2.0.3/lib/cldcapi11.jar
+-libraryjars <user.home>/.m2/repository/org/microemu/midpapi20/2.0.3/midpapi20-2.0.3.jar
+-libraryjars <user.home>/.m2/repository/org/microemu/cldcapi11/2.0.3/cldcapi11-2.0.3.jar
 -overloadaggressively
 -repackageclasses ''
 -allowaccessmodification

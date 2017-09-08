@@ -10,22 +10,16 @@ Before I can attempt to build a MIDlet, I need a MIDlet to build, so this is it.
 
 ## Does it build?
 
-Not in Travis (yet) but, thanks to a [Java Mobile Edition Development Tools](http://tjworld.net/wiki/Linux/Ubuntu/JavaMobileEditionDevelopmentTools) Wiki page, it's looking promising with OpenJDK, MicroEmulator and ProGuard. I'm thinking I'll probably need a suitable Docker image with those in and I may, relutantly, give maven a try, but so far I've managed to build a simple hello world MIDlet on the command line:
-
-### Compile
-
-```
-javac -target 1.3 -source 1.3 -bootclasspath /home/ubuntu/microemulator-2.0.3/lib/cldcapi10.jar:/home/ubuntu/microemulator-2.0.3/lib/midpapi20.jar -d target src/main/java/uk/me/nti/midp/ComeOnThunder.java
-```
+Not in Travis (yet) but, thanks to a [Java Mobile Edition Development Tools](http://tjworld.net/wiki/Linux/Ubuntu/JavaMobileEditionDevelopmentTools) Wiki page, it's looking promising with OpenJDK, MicroEmulator and ProGuard. So far I've got a maven build working, based on Marek's [Building a Java ME application with Maven](https://mobileswdev.wordpress.com/2009/03/13/building-a-java-me-application-with-maven/) blog post, so I can build MIDlets on the command line, which is nice:
 
 ### Create unverified jar
 
 ```
-jar cfm ComeOnThunder_unverified.jar src/main/resources/MANIFEST.MF -C target .
+mvn package
 ```
 
 ### Preverify
 
 ```
-java -jar /home/ubuntu/proguard5.3.3/lib/proguard.jar @midlet.pro
+java -jar ~/proguard5.3.3/lib/proguard.jar @midlet.pro
 ```
