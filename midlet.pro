@@ -1,5 +1,5 @@
--injars ComeOnThunder_unverified.jar
--outjars ComeOnThunder.jar
+-injars build/ComeOnThunder_unverified.jar
+-outjars build/ComeOnThunder.jar
 -libraryjars <user.home>/.m2/repository/org/microemu/midpapi20/2.0.3/midpapi20-2.0.3.jar
 -libraryjars <user.home>/.m2/repository/org/microemu/cldcapi11/2.0.3/cldcapi11-2.0.3.jar
 -overloadaggressively

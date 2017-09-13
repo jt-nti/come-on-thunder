@@ -5,7 +5,7 @@
   <groupId>uk.me.nti.midp</groupId>
   <artifactId>come-on-thunder</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>${midlet.version}-SNAPSHOT</version>
   <name>come-on-thunder</name>
   <url>https://github.com/jt-nti/come-on-thunder</url>
 
@@ -55,14 +55,14 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <outputFile>ComeOnThunder_unverified.jar</outputFile>
+              <outputFile>build/ComeOnThunder_unverified.jar</outputFile>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <manifestEntries>
                     <MicroEdition-Configuration>CLDC-1.1</MicroEdition-Configuration>
                     <MicroEdition-Profile>MIDP-2.0</MicroEdition-Profile>
                     <MIDlet-Name>Come on thunder</MIDlet-Name>
-                    <MIDlet-Version>1.0.1</MIDlet-Version>
+                    <MIDlet-Version>${midlet.version}</MIDlet-Version>
                     <MIDlet-Icon>/icon.png</MIDlet-Icon>
                     <MIDlet-Vendor>NTI</MIDlet-Vendor>
                     <MIDlet-1>Lightning timer,/icon.png,uk.me.nti.midp.ComeOnThunder</MIDlet-1>

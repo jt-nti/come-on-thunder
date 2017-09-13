@@ -1,0 +1,19 @@
+language: java
+env:
+  - VERSION="0.2"
+addons:
+  apt:
+    packages:
+    - proguard
+script:
+  - mvn package -Dmidlet.version=$VERSION
+  - proguard @midlet.pro
+before_deploy:
+  - jq --arg version $VERSION --arg tag ${TRAVIS_TAG:-none} --arg commit $TRAVIS_COMMIT -f bintray.jq bintray.json > build/bintray.json
+deploy:
+  provider: bintray
+  skip_cleanup: true
+  file: ./build/bintray.json
+  user: jtonline
+  key:
+    secure: F5Hf4/11XGqROlRTqLwY9Zcr6JUEozN1spAtK+FHztD2ISu+QuWL4Ir8Q2S5YTRIIcPRLaQmz1Snp7s+RXvZvFNZwrEeyoe44n2Q0BvC+9ClqxrpzwHfdEeEZV83jxfQz+fEbP9IddoE/ZkHfrVke3rzsKurruhQvfzeE/9Z/6xpo1bTZOTR19yIxRYtl92pDjIGIKpFYCbmNi3sK5WiAhRSS4ssL2Og28oJ3nCkL5sF234WlUFuTbFeYksCvMa09yEawoUCHv2fsYcSd77yTijKv1/M5rbMXzlYikWPPXDixcuoJRQPJ053Vi2aUHiQKSjRCJ6Y6h5sqQVLixV6sWyrv8UoV2A7ElwuJrZ1dYxx7w1HSL5nAFdUwYAQzLMJYh1bG4KjkbIJE1B/tLEwIs01iRCq0XKjXnN0x3Vd0VU4cn/yzHWD8Sw0cmpJTpIS4+dm9RPfnSgFKiAJzlPOMeU39LfFJ0yvhVyHwu0gOnnxp2ff43RhEMIXewd/yoUsnWOej+BjURLpZAxPHH28olgbXnc780Y+jdTJiESviLSRRhDsH37Vrxa/iwP8pj/EXEO4EfPbyQKwmpJ0Pd2gIMF+Z7pJYFdDx+rw1x4f/ji3fdHykpI/MOco4a8tQf3c0UMgx8RaDHaDxSl7VuPn6pGauN8JZDQ2Zq9/UQ8XUcE=

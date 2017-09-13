@@ -1,0 +1,36 @@
+{
+  "package": {
+    "name": "unstable",
+    "repo": "come-on-thunder",
+    "subject": "jtonline",
+    "desc": "Unstable travis build",
+    "issue_tracker_url": "https://github.com/jt-nti/come-on-thunder/issues",
+    "vcs_url": "https://github.com/jt-nti/come-on-thunder.git",
+    "licenses": [
+      "Apache-2.0"
+    ],
+    "labels": [
+      "j2me",
+      "midlet",
+      "java",
+      "mobile"
+    ],
+    "public_download_numbers": true,
+    "public_stats": true
+  },
+  "version": {
+    "name": "1.0",
+    "desc": "Unstable CI build version",
+    "vcs_tag": "1.0"
+  },
+  "files": [
+    {
+      "includePattern": "build/ComeOnThunder.jar",
+      "uploadPattern": "ComeOnThunder.jar",
+      "matrixParams": {
+        "override": 1
+      }
+    }
+  ],
+  "publish": true
+}
